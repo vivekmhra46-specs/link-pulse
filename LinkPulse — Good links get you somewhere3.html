@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://127.0.0.1:5500/linkpulse/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkPulse — Good links get you somewhere</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link href="./LinkPulse — Good links get you somewhere3_files/css2" rel="stylesheet">
+  <link rel="stylesheet" href="./LinkPulse — Good links get you somewhere3_files/style.css">
+  <script src="./LinkPulse — Good links get you somewhere3_files/qrcode.min.js.download" defer=""></script>
+  <script src="./LinkPulse — Good links get you somewhere3_files/app.js.download" defer=""></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="http://127.0.0.1:5500/linkpulse/index.html#top"><span class="brand-icon">↗</span> link<span>pulse</span></a>
+  <nav><a href="http://127.0.0.1:5500/linkpulse/index.html#dashboard">Dashboard</a><a href="http://127.0.0.1:5500/linkpulse/index.html#tools">Smart tools</a><a href="http://127.0.0.1:5500/linkpulse/index.html#analytics">Analytics</a></nav>
+  <div class="top-actions"><span class="online"><i></i> Smart tools ready</span><button class="btn btn-dark" data-focus-url="">Create link ↗</button></div>
+</header>
+<main id="top">
+  <section class="hero wrap"><div class="hero-copy"><div class="eyebrow"><span class="dot"></span> SHORT LINKS. BIG IDEAS.</div><h1>Good links get<br><em>you</em><br><em>somewhere.</em></h1><p class="lead">A thoughtful link workspace to create, protect, share and understand every click — all in one place.</p><button class="btn btn-rust" data-focus-url="">Create your first link <span>↗</span></button><div class="tiny-note">Smarter links. Clearer signals. More confidence.</div></div>
+  <div class="hero-art"><div class="photo-card"><div class="photo-scene"><div class="paper"><small>MAKE ROOM FOR</small><strong>GOOD<br>THINGS.</strong><span>ONE LINK AT A TIME</span></div><div class="scene-caption">A LITTLE LINK WITH A BIG IDEA.</div></div><div class="image-label">↗ Link in bio</div></div><div class="floating-link"><span class="mini-link">↗</span><span><b>Make room for the good stuff.</b><small>your-domain.example/good-things</small></span></div></div></section>
+  <div class="promise-strip"><span>◎ &nbsp; One place for every link</span><span>↗ &nbsp; Safety checks before sharing</span><span>✳ &nbsp; Analytics that make sense</span><span>▦ &nbsp; QR codes in a click</span></div>
+
+  <section id="dashboard" class="dashboard-section wrap"><div class="section-heading"><div><div class="eyebrow">YOUR LINKS, AT A GLANCE</div><h2>Everything in <em>one view.</em></h2><p>Clean links. Clear numbers. A little more control.</p></div><span class="dashboard-date">OVERVIEW / LIVE DEMO</span></div>
+    <div class="stats"><article class="stat"><span>Total links <b>↗</b></span><strong id="totalLinks">0</strong><small>Links you've created</small></article><article class="stat"><span>Total clicks <b>↗</b></span><strong id="totalClicks">0</strong><small>Demo clicks recorded</small></article><article class="stat"><span>Active links <b>↗</b></span><strong id="activeLinks">0</strong><small>Ready to be shared</small></article><article class="stat stat-dark"><span>Safety checks <b>✓</b></span><strong id="safetyCount">0</strong><small>URLs checked in this session</small></article></div>
+    <div class="workspace"><aside class="create-panel"><div class="panel-head"><div><h3>Make it memorable.</h3><p>Shorten a link and give it a little personality.</p></div><span class="badge">NEW LINK</span></div>
+      <form id="linkForm"><label for="longUrl">Destination URL</label><input id="longUrl" type="url" placeholder="https://yourwebsite.com/page" required="">
+        <label for="linkTitle">Link title <span>(optional)</span></label><input id="linkTitle" type="text" placeholder="e.g. My latest project">
+        <label for="slug">Custom back-half <span>(optional)</span></label><div class="slug-input"><span>linkpulse.local/</span><input id="slug" type="text" placeholder="your-name"></div>
+        <label for="tag">Tag</label><select id="tag"><option>Personal / Portfolio</option><option>Work</option><option>Social media</option><option>Campaign</option><option>College</option><option>Other</option></select>
+        <button class="btn btn-rust full" type="submit">Create short link <span>↗</span></button><p id="formMessage" class="form-message" aria-live="polite" style="color: rgb(156, 64, 54);">Request failed.</p>
+      </form>
+      <div class="divider"></div><div class="panel-head compact"><div><h3>AI link name helper</h3><p>Suggest a clear title and short slug from your URL.</p></div></div><button id="suggestBtn" class="btn btn-outline full" type="button">✨ Suggest title &amp; slug</button><p id="suggestMessage" class="helper-message" aria-live="polite">Suggestions are generated locally in this demo.</p>
+    </aside>
+    <section class="links-panel"><div class="panel-head links-title"><div><h3>Your links, in one place.</h3><p>Manage, share, and inspect your links.</p></div><button class="text-button" id="sortBtn">↕ Sort</button></div>
+      <div class="filter-row"><span>ALL LINKS <b id="linkCount">0</b></span><span class="searchbox">⌕ <input id="searchInput" type="search" placeholder="Search links..."></span></div><div id="linkList" class="link-list">
+        <div class="empty-state">
+            Could not reach the backend.
+            Start the server with python backend.py and refresh.
+        </div>
+    </div>
+    </section></div>
+
+    <section id="tools" class="tools-section"><div class="section-heading"><div><div class="eyebrow">BUILT-IN SMART TOOLS</div><h2>More than a <em>short link.</em></h2><p>Four practical tools, together in one workspace.</p></div></div>
+      <div class="tool-grid">
+        <article class="tool-card"><div class="tool-icon">🛡️</div><div class="eyebrow">01 / PROTECTION</div><h3>AI Link Safety Checker</h3><p>Check a URL for common warning signs before sharing it.</p><label for="safetyUrl">URL to check</label><input id="safetyUrl" type="url" placeholder="https://example.com"><button class="btn btn-rust full" id="checkSafetyBtn">Check link safety</button><div id="safetyResult" class="result-box" aria-live="polite">Safety results will appear here.</div><small class="fine-print">This demo uses basic heuristics, not a live threat database. A clean result is not a guarantee of safety.</small></article>
+        <article class="tool-card"><div class="tool-icon">▦</div><div class="eyebrow">02 / SHARE</div><h3>QR Code Generator</h3><p>Make a QR code for a URL and save it as an image.</p><label for="qrUrl">Destination URL</label><input id="qrUrl" type="url" placeholder="https://yourwebsite.com"><button class="btn btn-rust full" id="generateQrBtn">Generate QR code</button><div class="qr-output"><div id="qrcode"><span>QR preview</span></div></div><button class="btn btn-outline full" id="downloadQrBtn" disabled="">Download QR as PNG</button></article>
+        <article class="tool-card"><div class="tool-icon">✦</div><div class="eyebrow">03 / INSIGHTS</div><h3>Smart Analytics Dashboard</h3><p>View session demo clicks, popular links, and recent activity.</p><div class="analytics-mini"><div><span>Total demo clicks</span><strong id="analyticsClicks">0</strong></div><div><span>Top link</span><strong id="topLink">—</strong></div></div><div class="chart-wrap"><canvas id="clickChart" height="48" aria-label="Clicks by link" role="img" width="260"></canvas></div><button class="btn btn-outline full" id="simulateClickBtn">Simulate a click on a link</button><small class="fine-print">Click data is simulated in this browser; it is not real visitor tracking.</small></article>
+        <article class="tool-card"><div class="tool-icon">🔔</div><div class="eyebrow">04 / AWARENESS</div><h3>Intelligent Notifications</h3><p>Get in-app alerts for link activity and useful reminders.</p><div class="notification-controls"><label class="check-line"><input id="notifyHighClicks" type="checkbox" checked=""> Alert when a link reaches 10 demo clicks</label><label class="check-line"><input id="notifyCreated" type="checkbox" checked=""> Notify me when a link is created</label></div><div id="notificationList" class="notification-list" aria-live="polite">
+            <div class="notification empty-notice">
+                You're all caught up.
+            </div>
+        </div><button class="btn btn-outline full" id="clearNotificationsBtn">Clear notifications</button></article>
+      </div>
+    </section>
+    <section class="upload-panel"><div><div class="eyebrow">BULK IMPORT</div><h3>Have a lot of links?</h3><p>Import a simple CSV file to add links to your workspace.</p></div><div class="upload-actions"><span>CSV IMPORT</span><label class="upload-btn" for="csvFile">Pick a file to import <b>↗</b></label><input id="csvFile" type="file" accept=".csv,text/csv" hidden=""><small>Expected columns: title,url,slug,tag</small></div></section>
+  </section>
+  <section id="analytics" class="insights-section"><div class="wrap"><div class="eyebrow">A LITTLE LESS GUESSWORK</div><h2>Thoughtful links.<br><em>Useful signals.</em></h2><p class="insight-intro">The small details that help you share with more confidence.</p><div class="insight-cards"><article><span>01 / SAFETY</span><div class="insight-symbol">🛡</div><h3>Pause before you share.</h3><p>Review common URL warning signs before passing a link along.</p></article><article><span>02 / CLARITY</span><div class="insight-symbol">↗</div><h3>Understand activity.</h3><p>Explore demo click counts and compare which links are getting attention.</p></article><article><span>03 / CONVENIENCE</span><div class="insight-symbol">▦</div><h3>Make sharing easier.</h3><p>Generate QR codes and keep your links tidy in one workspace.</p></article></div></div></section>
+</main>
+<footer id="footer"><div class="wrap footer-main"><div><div class="eyebrow">MAKE YOUR NEXT LINK COUNT</div><h2>Make your next link <em>count.</em></h2><p>A calmer home for the links you want to share.</p></div><button class="btn btn-light" data-focus-url="">Create a link ↗</button></div><div class="footer-bottom wrap"><a class="brand" href="http://127.0.0.1:5500/linkpulse/index.html#top"><span class="brand-icon">↗</span> link<span>pulse</span></a><span>Made for the links that matter.</span><span>© 2026 LinkPulse demo</span></div></footer>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body></html>
